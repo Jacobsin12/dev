@@ -15,7 +15,7 @@ jobs:
         # Usamos las versiones que definiste en tu manual
         node-version: [18.x, 22.x] 
 
-    steps:
+steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
@@ -23,12 +23,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
 
     - name: Install dependencies
-      # Esto instalará jest y supertest que están en tus devDependencies
+      # Esto es CLAVE: instala todo limpio en el servidor
       run: npm install 
 
     - name: Run Jest tests
-      # Esto ejecutará el script "test" de tu package.json
-      run: npx jest
+      # Ahora sí tendrá permisos
+      run: npm testnpx jest
