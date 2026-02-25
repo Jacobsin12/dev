@@ -31,4 +31,4 @@ jobs:
 
     - name: Run Jest tests
       # Esto ejecutará el script "test" de tu package.json
-      run: npm test
+      run: npx jest
